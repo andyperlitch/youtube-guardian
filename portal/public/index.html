@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube Guardian Portal</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <h1>YouTube Guardian</h1>
+        <p class="muted">Family allowlists for paired browsers</p>
+      </div>
+      <button id="logout" class="ghost" hidden>Log out</button>
+    </header>
+
+    <main>
+      <section id="login-view" class="card">
+        <h2>Parent sign-in</h2>
+        <p class="muted">Uses <code>ADMIN_PASSWORD</code> from the server environment.</p>
+        <form id="login-form">
+          <label>
+            Admin password
+            <input id="login-password" type="password" autocomplete="current-password" />
+          </label>
+          <button type="submit">Sign in</button>
+        </form>
+        <p id="login-error" class="error" hidden></p>
+      </section>
+
+      <section id="app-view" hidden>
+        <div class="layout">
+          <aside class="card">
+            <h2>Devices</h2>
+            <form id="create-form" class="stack">
+              <input id="device-name" placeholder="e.g. Living room Chromebook" />
+              <button type="submit">Create pairing token</button>
+            </form>
+            <ul id="device-list" class="device-list"></ul>
+          </aside>
+          <section class="card" id="detail">
+            <p class="muted">Select a device to edit channel and Shorts allowlists.</p>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

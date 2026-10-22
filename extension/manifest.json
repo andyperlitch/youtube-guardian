@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Guardian",
+  "version": "2.0.0",
+  "description": "Parent-controlled YouTube playback: separate channel and Shorts allowlists, hashed password, optional portal sync.",
+  "permissions": ["storage", "alarms"],
+  "host_permissions": ["*://www.youtube.com/*", "*://youtube.com/*"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube Guardian"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*", "*://youtube.com/*"],
+      "js": [
+        "lib/constants.js",
+        "lib/channel-utils.js",
+        "lib/storage.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

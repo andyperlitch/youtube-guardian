@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube Guardian</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <h1 class="title">YouTube Guardian</h1>
+      <p class="hint">
+        Regular videos and Shorts use <strong>separate</strong> allowlists.
+        Empty <strong>channel</strong> list = all regular videos allowed.
+        Empty <strong>Shorts</strong> list = all Shorts blocked.
+      </p>
+
+      <section id="onboard-panel" class="panel" hidden>
+        <h2>Set a parent password</h2>
+        <p class="lock-hint">
+          First-time setup. This password is stored only as a salted hash on this
+          device. There is no recovery except reinstalling the extension.
+        </p>
+        <form id="onboard-form" class="stack">
+          <input
+            id="onboard-password"
+            type="password"
+            placeholder="New password (min 8 characters)"
+            autocomplete="new-password"
+            spellcheck="false"
+          />
+          <input
+            id="onboard-confirm"
+            type="password"
+            placeholder="Confirm password"
+            autocomplete="new-password"
+            spellcheck="false"
+          />
+          <button type="submit">Save password</button>
+        </form>
+        <p id="onboard-error" class="error" hidden></p>
+      </section>
+
+      <section id="lock-panel" class="panel" hidden>
+        <p class="lock-hint">Unlock to edit allowlists, pairing, or the password.</p>
+        <form id="unlock-form" class="unlock-row">
+          <input
+            id="password-input"
+            type="password"
+            placeholder="Password"
+            autocomplete="current-password"
+            spellcheck="false"
+          />
+          <button type="submit" id="unlock-btn">Unlock</button>
+        </form>
+        <p id="pw-error" class="error" hidden></p>
+      </section>
+
+      <section id="editor" hidden>
+        <div class="tabs" role="tablist">
+          <button type="button" class="tab active" data-tab="channel">
+            Channels
+          </button>
+          <button type="button" class="tab" data-tab="shorts">Shorts</button>
+        </div>
+        <p id="list-policy" class="policy"></p>
+        <form id="add-form" class="add-row">
+          <input
+            id="channel-input"
+            type="text"
+            placeholder="youtube.com/@channel or UC…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button type="submit" id="add-btn">Add</button>
+        </form>
+        <p id="error" class="error" hidden></p>
+        <ul id="list" class="list"></ul>
+        <p id="empty" class="empty"></p>
+
+        <details class="more">
+          <summary>Change password</summary>
+          <form id="change-form" class="stack">
+            <input
+              id="change-current"
+              type="password"
+              placeholder="Current password"
+              autocomplete="current-password"
+              spellcheck="false"
+            />
+            <input
+              id="change-new"
+              type="password"
+              placeholder="New password (min 8 characters)"
+              autocomplete="new-password"
+              spellcheck="false"
+            />
+            <input
+              id="change-confirm"
+              type="password"
+              placeholder="Confirm new password"
+              autocomplete="new-password"
+              spellcheck="false"
+            />
+            <button type="submit">Update password</button>
+          </form>
+          <p id="change-msg" class="ok" hidden></p>
+          <p id="change-error" class="error" hidden></p>
+        </details>
+
+        <details class="more">
+          <summary>Portal pairing</summary>
+          <p class="lock-hint">
+            Pair this browser with the family portal to sync allowlists. Leave
+            unpaired for local-only use.
+          </p>
+          <p id="pair-status" class="policy"></p>
+          <form id="pair-form" class="stack">
+            <input
+              id="portal-url"
+              type="url"
+              placeholder="https://your-portal.up.railway.app"
+              spellcheck="false"
+            />
+            <input
+              id="pair-token"
+              type="text"
+              placeholder="Pairing token"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button type="submit">Pair &amp; sync</button>
+          </form>
+          <div class="row-btns">
+            <button type="button" id="sync-now" class="secondary">Sync now</button>
+            <button type="button" id="unpair" class="secondary">Unpair</button>
+          </div>
+          <p id="pair-error" class="error" hidden></p>
+        </details>
+      </section>
+    </main>
+    <script src="lib/constants.js"></script>
+    <script src="lib/channel-utils.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
