@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 360px;
+  font: 13px/1.45 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #0f0f0f;
+  background: #fff;
+}
+
+.wrap {
+  padding: 14px 16px 16px;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.lock-panel {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+}
+
+.lock-hint {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: #606060;
+}
+
+.unlock-row {
+  display: flex;
+  gap: 8px;
+}
+
+.unlock-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.unlock-row input:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 1px;
+  border-color: #1a73e8;
+}
+
+.unlock-row button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #1a73e8;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.unlock-row button:hover {
+  background: #1557b0;
+}
+
+.hint {
+  margin: 0 0 12px;
+  font-size: 12px;
+  color: #606060;
+}
+
+.hint code {
+  font-size: 11px;
+  background: #f2f2f2;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+/* `hidden` + `display:flex` on the same element can still show the row in some UAs */
+#add-form[hidden] {
+  display: none !important;
+}
+
+.add-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.add-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.add-row input:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 1px;
+  border-color: #1a73e8;
+}
+
+.add-row button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #1a73e8;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-row button:hover {
+  background: #1557b0;
+}
+
+.error {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: #c5221f;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.list li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+}
+
+.list li:last-child {
+  border-bottom: none;
+}
+
+.entry-meta {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.entry-label {
+  font-weight: 500;
+  color: #0f0f0f;
+}
+
+.entry-sub {
+  margin-top: 2px;
+  color: #606060;
+  font-size: 11px;
+}
+
+.remove {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.remove:hover {
+  background: #f8f8f8;
+}
+
+.empty {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #606060;
+}
+
+.empty[hidden] {
+  display: none;
+}

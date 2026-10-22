@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Channel Whitelist",
+  "version": "1.0.0",
+  "description": "Only allow playback from YouTube channels you add to your whitelist.",
+  "permissions": ["storage"],
+  "host_permissions": ["*://www.youtube.com/*", "*://youtube.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube Channel Whitelist"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*", "*://youtube.com/*"],
+      "js": ["channel-utils.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
