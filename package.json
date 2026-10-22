@@ -1,0 +1,21 @@
+{
+  "name": "youtube-guardian",
+  "private": true,
+  "description": "YouTube parental-control Chrome extension + family portal",
+  "scripts": {
+    "test": "node --test tests/*.test.js && npm --prefix portal test",
+    "test:extension": "node --test tests/*.test.js",
+    "test:portal": "npm --prefix portal test",
+    "portal:install": "npm --prefix portal install",
+    "portal:dev": "npm --prefix portal run dev",
+    "portal:build": "npm --prefix portal run build",
+    "portal:start": "npm --prefix portal start",
+    "typecheck": "npm --prefix portal run typecheck"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^24.43.1"
+  }
+}
